@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
-import com.fbocchi.tasks.R
 import com.fbocchi.tasks.databinding.FragmentTasksBinding
 import com.fbocchi.tasks.model.database.TasksDatabase
 import com.fbocchi.tasks.viewmodel.TaskViewModel
@@ -41,6 +40,9 @@ class TasksFragment : Fragment() {
 
         // Data binding
         binding.taskViewModel = taskViewModel
+
+        // ...
+        binding.lifecycleOwner = viewLifecycleOwner // IMPORTANTE: altrimenti data binding non funziona!
 
         return view
     }
