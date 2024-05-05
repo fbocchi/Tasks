@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".view.TasksFragment">
+
+    <data>
+        <variable
+            name="taskViewModel"
+            type="com.fbocchi.tasks.viewmodel.TaskViewModel" />
+    </data>
+
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/new_task_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@={taskViewModel.savedTaskName}"
+        android:inputType="text"
+        android:hint="@string/new_task_edit_text_hint" />
+
+    <!-- Nota @=savedTaskName: assegna a savedTaskName text di EditText!!!-->
+    <Button
+        android:id="@+id/sava_task_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/save_task_button_text"
+        android:onClick="@{() -> taskViewModel.saveTask()}" />
+
+    <TextView
+        android:id="@+id/tasks"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@{taskViewModel.tasksString}" />
+
+</LinearLayout>
+
+</layout>
